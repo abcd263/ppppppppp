@@ -114,3 +114,54 @@ document.querySelectorAll('[data-tabs]').forEach((tabs)=>{
   update();
   setInterval(update, 60000);
 })();
+
+window.addEventListener('DOMContentLoaded', () => {
+  // Home section content
+  const homeContent = localStorage.getItem('home');
+  if (homeContent) {
+    const heroCopy = document.querySelector('.hero-copy');
+    if (heroCopy) heroCopy.innerHTML = homeContent;
+  }
+
+  // About section content
+  const aboutContent = localStorage.getItem('about');
+  if (aboutContent) {
+    const aboutSection = document.querySelector('section[data-route="/about"] .card.motion-fade-up .card-body');
+    if (aboutSection) aboutSection.innerHTML = aboutContent;
+  }
+
+  // Committee section (কমিটি ও সদস্য)
+  const committeeContent = localStorage.getItem('committee');
+  if (committeeContent) {
+    const committeeCards = document.querySelector('section[data-route="/about"] .cards.two-col');
+    if (committeeCards) committeeCards.innerHTML = committeeContent;
+  }
+
+  // Events section
+  const eventsContent = localStorage.getItem('events');
+  if (eventsContent) {
+    const eventsList = document.querySelector('section[data-route="/events"] .events.timeline');
+    if (eventsList) eventsList.innerHTML = eventsContent;
+  }
+
+  // Gallery section
+  const galleryContent = localStorage.getItem('gallery');
+  if (galleryContent) {
+    const galleryDiv = document.querySelector('section[data-route="/gallery"] .gallery');
+    if (galleryDiv) galleryDiv.innerHTML = galleryContent;
+  }
+
+  // Donate section
+  const donateContent = localStorage.getItem('donate');
+  if (donateContent) {
+    const donateCard = document.querySelector('section[data-route="/donate"] .card-body');
+    if (donateCard) donateCard.innerHTML = donateContent;
+  }
+
+  // Contact section
+  const contactContent = localStorage.getItem('contact');
+  if (contactContent) {
+    const contactCard = document.querySelector('section[data-route="/contact"] .card-body');
+    if (contactCard) contactCard.innerHTML = contactContent;
+  }
+});
